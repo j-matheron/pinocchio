@@ -23,6 +23,7 @@ BOOST_AUTO_TEST_CASE(test_aba_derivatives_casadi_algo)
 {
   typedef double Scalar;
   typedef pinocchio::ModelTpl<Scalar> Model;
+  typedef pinocchio::DataTpl<Scalar> Data;
   typedef typename Model::ConfigVectorType ConfigVector;
   typedef typename Model::TangentVectorType TangentVector;
 
@@ -30,7 +31,7 @@ BOOST_AUTO_TEST_CASE(test_aba_derivatives_casadi_algo)
   pinocchio::buildModels::humanoidRandom(model);
   model.lowerPositionLimit.head<3>().fill(-1.);
   model.upperPositionLimit.head<3>().fill(1.);
-  pinocchio::Data data(model);
+  Data data(model);
 
   ConfigVector q(model.nq);
   q = pinocchio::randomConfiguration(model);

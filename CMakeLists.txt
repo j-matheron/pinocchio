@@ -1058,16 +1058,11 @@ if(BUILD_WITH_CASADI_SUPPORT)
     )
 
     target_compile_definitions(
-        pinocchio_casadi
+        pinocchio_casadi_headers
         INTERFACE PINOCCHIO_CONTEXT_FILE="pinocchio/src/context/casadi.hxx"
+
     )
 
-    if(ENABLE_TEMPLATE_INSTANTIATION)
-        target_compile_definitions(
-            pinocchio_casadi_template_instantiation
-            PRIVATE PINOCCHIO_CONTEXT_FILE="pinocchio/src/context/casadi.hxx"
-        )
-    endif()
 endif()
 
 if(BUILD_WITH_EXTRA_SUPPORT)

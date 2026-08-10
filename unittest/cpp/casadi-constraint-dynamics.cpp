@@ -22,8 +22,11 @@ BOOST_AUTO_TEST_CASE(test_constraintDynamics_casadi_algo)
   typedef double Scalar;
   typedef pinocchio::ModelTpl<Scalar> Model;
   typedef pinocchio::DataTpl<Scalar> Data;
+  typedef pinocchio::DataTpl<Scalar> Data;
   typedef typename Model::ConfigVectorType ConfigVector;
   typedef typename Model::TangentVectorType TangentVector;
+  typedef pinocchio::RigidConstraintModelTpl<Scalar> RigidConstraintModel;
+  typedef pinocchio::RigidConstraintDataTpl<Scalar> RigidConstraintData;
 
   const Scalar prec = Eigen::NumTraits<Scalar>::dummy_precision();
 
@@ -39,20 +42,20 @@ BOOST_AUTO_TEST_CASE(test_constraintDynamics_casadi_algo)
   const Model::JointIndex LF_id = model.getJointId(LF);
 
   // Contact models and data
-  std::vector<pinocchio::RigidConstraintModel> contact_models;
-  std::vector<pinocchio::RigidConstraintData> contact_data;
+  std::vector<RigidConstraintModel> contact_models;
+  std::vector<RigidConstraintData> contact_data;
 
-  pinocchio::RigidConstraintModel ci_RF(
+  RigidConstraintModel ci_RF(
     pinocchio::CONTACT_3D, model, RF_id, pinocchio::LOCAL_WORLD_ALIGNED);
   ci_RF.joint1_placement.setRandom();
   contact_models.push_back(ci_RF);
-  contact_data.push_back(pinocchio::RigidConstraintData(ci_RF));
+  contact_data.push_back(RigidConstraintData(ci_RF));
 
-  pinocchio::RigidConstraintModel ci_LF(
+  RigidConstraintModel ci_LF(
     pinocchio::CONTACT_6D, model, LF_id, pinocchio::LOCAL_WORLD_ALIGNED);
   ci_LF.joint1_placement.setRandom();
   contact_models.push_back(ci_LF);
-  contact_data.push_back(pinocchio::RigidConstraintData(ci_LF));
+  contact_data.push_back(RigidConstraintData(ci_LF));
   ConfigVector q(model.nq);
   q = pinocchio::randomConfiguration(model);
   TangentVector v(TangentVector::Random(model.nv));

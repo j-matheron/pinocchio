@@ -153,6 +153,7 @@ namespace pinocchio
     {
       typedef AutoDiffAlgoBase<_Scalar> Base;
       typedef typename Base::Scalar Scalar;
+      typedef typename Base::Model Model;
 
       typedef typename Base::TangentVectorType TangentVectorType;
       typedef typename Base::RowMatrixXs RowMatrixXs;
@@ -296,6 +297,7 @@ namespace pinocchio
 
       typedef AutoDiffAlgoBase<_Scalar> Base;
       typedef typename Base::Scalar Scalar;
+      typedef typename Base::Model Model;
 
       typedef typename Base::TangentVectorType TangentVectorType;
       typedef typename Base::RowMatrixXs RowMatrixXs;
@@ -417,6 +419,7 @@ namespace pinocchio
       typedef typename Base::Scalar Scalar;
       typedef typename Base::ADScalar ADScalar;
       typedef typename Base::ADSVector ADSVector;
+      typedef typename Base::Model Model;
 
       typedef typename Base::TangentVectorType TangentVectorType;
       typedef typename Base::RowMatrixXs RowMatrixXs;
@@ -619,6 +622,7 @@ namespace pinocchio
       typedef typename Base::Scalar Scalar;
       typedef typename Base::ADScalar ADScalar;
       typedef typename Base::ADSVector ADSVector;
+      typedef typename Base::Model Model;
 
       typedef typename Base::TangentVectorType TangentVectorType;
       typedef typename Base::RowMatrixXs RowMatrixXs;
